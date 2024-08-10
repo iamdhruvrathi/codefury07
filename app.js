@@ -4,6 +4,7 @@ const path = require("path");
 const methodOverride = require("method-override");
 const mysql = require("mysql2");
 const bcrypt = require("bcrypt");
+const ejsMate = require("ejs-mate");
 
 // Initialize Express app
 const app = express();
@@ -24,11 +25,11 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(methodOverride("_method")); // Allows using _method in query string for HTTP methods like PUT, DELETE
+app.use(methodOverride("_method"));
+app.engine("ejs", ejsMate);
 
-// Routes
 app.get("/", (req, res) => {
-  res.render("home");
+  res.render("./file/home.ejs");
 });
 
 // Start server
