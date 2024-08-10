@@ -120,3 +120,6 @@ app.get("/sos", (req, res) => {
 app.get("/weather", (req, res) => {
   res.render("./file/weather"); 
 });
+app.get("/test", (req, res) => {
+  res.render("./file/index1"); 
+});

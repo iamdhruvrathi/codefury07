@@ -3,8 +3,59 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            
+            height: 100vh;
+            margin: 0;
+        }
+
+        .sos-alert {
+            text-align: center;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        h1 {
+            color: #d9534f;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        #emergency-number {
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+
+        #start-button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #start-button:hover {
+            background-color: #0056b3;
+        }
+
         #video-container {
-            position: relative; /* Positioning context for the icon */
+            position: relative;
             display: flex;
             justify-content: center;
             margin: 20px 0;
@@ -13,37 +64,28 @@
         video {
             width: 100%;
             max-width: 600px;
-            border: 1px solid #ccc;
+            border: 1px solid #ddd;
             border-radius: 5px;
-        }
-
-        #sos-alert {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        #start-button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         #icon-container {
-            position: absolute; /* Position the icon inside the video container */
-            top: 50%; /* Center vertically */
-            left: 50%; /* Center horizontally */
-            transform: translate(-50%, -50%); /* Adjust to center the icon */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             display: flex;
             justify-content: center;
             align-items: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .fa-user {
-            font-size: 50px; /* Adjust size as needed */
-            color: #007bff; /* Icon color */
+            font-size: 50px;
+            color: #007bff;
         }
     </style>
 </head>
