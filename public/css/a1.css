@@ -4,46 +4,54 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: Outfit, sans-serif; /* Added sans-serif as fallback */
+    font-family: Outfit, sans-serif;
+    
 }
 
-
-body{
+body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    
 }
-.container{
-    flex:1;
+
+.container {
+    flex: 1;
 }
+
 .f_info {
-  display: flex;
-  align-items: space-evenly;
-  justify-content: center;
-  flex-wrap: wrap;
-  height: 5rem;
-  background-color: #20262c;
-  color: white;
-  text-align: center;
+    display: flex;
+    align-items: space-evenly;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 5rem;
+    background-color: #201E43; /* Footer background color */
+    color: #EEEEEE; /* Footer text color */
+    text-align: center;
 }
+
 .f_infosocial {
-  width: 100%;
-  font-size: 1.2rem;
-  vertical-align: middle;
+    width: 100%;
+    font-size: 1.2rem;
+    vertical-align: middle;
 }
+
 .f_infosocial i {
-  padding: 0rem 0.4rem 0rem;
+    padding: 0rem 0.4rem 0rem;
 }
 
 .f_infolinks {
-  width: 100%;
-  vertical-align: middle;
+    width: 100%;
+    vertical-align: middle;
 }
+
 .f_infolinks a {
-  text-decoration: none;
+    text-decoration: none;
+    color: #508C9B; /* Link color */
 }
-.f_infolinks a :hover {
-  text-decoration: underline;
+
+.f_infolinks a:hover {
+    text-decoration: underline;
 }
 
 a {
@@ -55,9 +63,9 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #131921;
+    background-color: #134B70; /* Navbar background color */
     padding: 10px 20px;
-    color: #fff;
+    color: #EEEEEE; /* Navbar text color */
 }
 
 .nav-container {
@@ -79,7 +87,7 @@ nav {
 }
 
 .nav-links li a {
-    color: #fff;
+    color: #EEEEEE; /* Link color */
     font-weight: 500;
     font-size: 15px;
 }
@@ -90,8 +98,8 @@ nav {
 }
 
 .btn {
-    background-color: #ffd64f;
-    color: #000;
+    background-color: #508C9B; /* Button background color */
+    color: #EEEEEE; /* Button text color */
     padding: 10px 20px;
     border-radius: 5px;
     font-weight: 600;
@@ -99,11 +107,11 @@ nav {
 }
 
 .btn:hover {
-    background-color: #fbc02d;
+    background-color: #134B70; /* Button hover color */
 }
 
 .hero {
-    background: #fff;
+    background: #EEEEEE; /* Hero section background */
     text-align: center;
     padding: 50px 20px;
     position: relative; /* Positioning context for absolute children */
@@ -127,11 +135,13 @@ nav {
 .hero h1 {
     font-size: 36px;
     margin-bottom: 10px;
+    color: #201E43; /* Hero title color */
 }
 
 .hero p {
     font-size: 18px;
     margin-bottom: 20px;
+    color: #201E43; /* Hero paragraph color */
 }
 
 .cta-buttons {
@@ -153,8 +163,8 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #be0b3b;
-    color: #fff;
+    background-color: #201E43; /* SOS button background color */
+    color: #EEEEEE; /* SOS button text color */
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -169,7 +179,7 @@ nav {
 }
 
 .cta-sosbutton:hover {
-    background-color: #a00000; 
+    background-color: #134B70; /* SOS button hover color */
 }
 
 .cta-sosbutton:focus {
