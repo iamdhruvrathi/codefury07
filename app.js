@@ -25,6 +25,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
+app.use(express.static("views"));
+
 
 // Start server
 app.listen(port, () => {
