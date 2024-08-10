@@ -131,13 +131,14 @@ nav {
 
 .hero {
     
-    background: #c6c7ef; /* Hero section background */
+    background: linear-gradient(135deg, #36BA98, #E76F51);
     text-align: center;
     padding: 50px 20px;
     position: relative; /* Positioning context for absolute children */
     overflow: hidden; /* Prevents overflow from absolute children */
     border-radius: 10px;
     margin-top: 10px !important;
+    margin-bottom: 10px;
 }
 
 .hero img {
@@ -218,7 +219,7 @@ nav {
 
 .cta-buttons .btn {
   background-color: red;
-  color: white;
+  color: black;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
