@@ -5,18 +5,19 @@ const methodOverride = require("method-override");
 const mysql = require("mysql2");
 const bcrypt = require("bcrypt");
 const ejsMate = require("ejs-mate");
+require("dotenv").config();
 
 // Initialize Express app
 const app = express();
-const port = 8080; // Use environment variable for port if available
+const port = process.env.PORT || 8000;
 
 // Create MySQL connection
 const connection = mysql.createConnection({
-  host: "127.0.0.1",
-  user: "root",
-  database: "ieee",
-  password: "adarsh1947",
-  port: 3306,
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  database: process.env.DB_DATABASE,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
 });
 
 // Middleware setup
@@ -36,3 +37,5 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}/`);
 });
+
+
