@@ -74,7 +74,7 @@ app.post("/login", async (req, res) => {
     }
 
     console.log("User logged in successfully");
-    res.render("file/home", { username });
+    res.render("file/home2", { username });
   });
 });
 
