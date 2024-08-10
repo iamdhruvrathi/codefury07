@@ -1,8 +1,10 @@
 <% layout("layouts/boilerplate") %>
 
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
         #video-container {
+            position: relative; /* Positioning context for the icon */
             display: flex;
             justify-content: center;
             margin: 20px 0;
@@ -28,6 +30,21 @@
             color: white;
             cursor: pointer;
         }
+
+        #icon-container {
+            position: absolute; /* Position the icon inside the video container */
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Adjust to center the icon */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fa-user {
+            font-size: 50px; /* Adjust size as needed */
+            color: #007bff; /* Icon color */
+        }
     </style>
 </head>
 
@@ -45,8 +62,13 @@
 
         <div id="video-container">
             <video id="localVideo" autoplay muted></video>
+            <div id="icon-container">
+                <i class="fa-solid fa-user"></i>
+            </div>
         </div>
     </section>
+
+    <script src="public/js/callcenter.js"></script> <!-- Make sure to include your call center JS file -->
 
     <script>
         async function startVideo() {
@@ -61,6 +83,9 @@
                 const userState = await getUserState(); // Function to get the user's state
                 const userEmergencyNumber = getEmergencyNumber(userState);
                 document.getElementById("number").innerText = userEmergencyNumber; // Display the number
+
+                // Hide the user icon once video is active
+                document.getElementById("icon-container").style.display = 'none';
             } catch (error) {
                 console.error('Error accessing media devices.', error);
                 alert('Unable to access your camera. Please allow camera access in your browser settings.');

@@ -163,8 +163,8 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #201E43; /* SOS button background color */
-    color: #EEEEEE; /* SOS button text color */
+    background-color: red; /* SOS button background color */
+    color: black; /* SOS button text color */
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -176,6 +176,7 @@ nav {
     margin-top: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease;
+    
 }
 
 .cta-sosbutton:hover {
@@ -187,4 +188,8 @@ nav {
     box-shadow: 0 0 0 2px #fff;
 }
 
-/* Additional styles unchanged below this line */
+
+
+.cta-container a{
+    text-decoration: none;
+}
