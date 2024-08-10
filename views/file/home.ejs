@@ -11,7 +11,7 @@
             <a href="#" class="btn">Sign Up for Alerts</a>
         </div>
         <div class="cta-container">
-            <button class="cta-sosbutton" onclick="callEmergencyNumber()">SOS</button>
+            <a href="/sos" class="cta-sosbutton">SOS</a> <!-- Link to sos.ejs -->
         </div>
     </section>
 
@@ -62,45 +62,4 @@
             </div>
         </div>
     </section>
-
-    <script src="public/js/callcenter.js"></script> <!-- Include the JS file -->
-
-    <script>
-        function callEmergencyNumber() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    const lat = position.coords.latitude;
-                    const lng = position.coords.longitude;
-
-                    // Call function to get state based on coordinates
-                    let userState = getStateFromCoordinates(lat, lng);
-
-                    // Fetch emergency number based on state
-                    let emergencyNumber = getEmergencyNumber(userState);
-                    if (emergencyNumber !== "Emergency number not available") {
-                        // Initiate the call directly
-                        window.location.href = `tel:${emergencyNumber}`;
-                    } else {
-                        alert('Emergency number not available for your location.');
-                    }
-                }, function() {
-                    alert('Unable to retrieve your location. Please allow location access.');
-                });
-            } else {
-                alert('Geolocation is not supported by this browser.');
-            }
-        }
-
-        function getStateFromCoordinates(lat, lng) {
-            // Simplified example for determining the state based on coordinates
-            if (lat >= 12.0 && lat <= 15.0 && lng >= 74.0 && lng <= 77.0) {
-                return "Karnataka"; 
-            } else if (lat >= 28.0 && lat <= 30.0 && lng >= 76.0 && lng <= 78.0) {
-                return "Delhi"; 
-            }
-            // Add more states and their coordinates here
-
-            return "State not recognized";
-        }
-    </script>
 </body>

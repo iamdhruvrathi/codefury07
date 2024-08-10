@@ -111,3 +111,7 @@ app.post("/register", async (req, res) => {
 });
 
 
+
+app.get("/sos", (req, res) => {
+  res.render("./file/sos"); // Render sos.ejs
+});

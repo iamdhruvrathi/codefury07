@@ -1,0 +1,89 @@
+<% layout("layouts/boilerplate") %>
+
+<head>
+    <style>
+        #video-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        video {
+            width: 100%;
+            max-width: 600px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #sos-alert {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #start-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="sos-alert">
+        <h1>Emergency SOS Activated!</h1>
+        <p>Your location has been shared with the emergency services.</p>
+        <p>If you need immediate assistance, please call the emergency number below:</p>
+
+        <div id="emergency-number">
+            <strong>Emergency Number: <span id="number">Fetching...</span></strong>
+        </div>
+
+        <button id="start-button" onclick="startVideo()">Connect</button>
+
+        <div id="video-container">
+            <video id="localVideo" autoplay muted></video>
+        </div>
+    </section>
+
+    <script>
+        async function startVideo() {
+            const localVideo = document.getElementById('localVideo');
+
+            try {
+                // Access the user's camera
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                localVideo.srcObject = stream;
+
+                // Fetch and display the emergency number based on the user's state
+                const userState = await getUserState(); // Function to get the user's state
+                const userEmergencyNumber = getEmergencyNumber(userState);
+                document.getElementById("number").innerText = userEmergencyNumber; // Display the number
+            } catch (error) {
+                console.error('Error accessing media devices.', error);
+                alert('Unable to access your camera. Please allow camera access in your browser settings.');
+            }
+        }
+
+        async function getUserState() {
+            // This function should determine the user's state based on their location.
+            // For demo purposes, we will return a hardcoded state.
+
+            // In a real implementation, you would use geolocation to determine the user's state.
+            return "Karnataka"; // Replace this with actual logic to determine the user's state
+        }
+
+        function getEmergencyNumber(state) {
+            const emergencyNumbers = {
+                Karnataka: "080-22340676",
+                Maharashtra: "022-27601150",
+                Delhi: "011-100",
+                // Add numbers for other states here
+            };
+
+            return emergencyNumbers[state] || "Emergency number not available";
+        }
+    </script>
+</body>
