@@ -5,19 +5,18 @@ const methodOverride = require("method-override");
 const mysql = require("mysql2");
 const bcrypt = require("bcrypt");
 const ejsMate = require("ejs-mate");
-require("dotenv").config();
 
-// Initialize Express app
+
 const app = express();
-const port = process.env.PORT || 8000;
+const port = 8000; // You can set this to any desired port
 
-// Create MySQL connection
+
 const connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  database: process.env.DB_DATABASE,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
+  host: "mysql-2e295e01-noob-8b4e.k.aivencloud.com",
+  user: "avnadmin",
+  database: "defaultdb",
+  password: "AVNS_a4Q4yFt1nVXs8YrHqVD",
+  port: 11699,
 });
 
 // Middleware setup
@@ -37,5 +36,3 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}/`);
 });
-
-
