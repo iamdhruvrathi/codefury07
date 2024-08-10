@@ -7,8 +7,43 @@
     font-family: Outfit, sans-serif; /* Added sans-serif as fallback */
 }
 
-body {
-    background-color: #dadada;
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{
+    flex:1;
+}
+.f_info {
+  display: flex;
+  align-items: space-evenly;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 5rem;
+  background-color: #20262c;
+  color: white;
+  text-align: center;
+}
+.f_infosocial {
+  width: 100%;
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+.f_infosocial i {
+  padding: 0rem 0.4rem 0rem;
+}
+
+.f_infolinks {
+  width: 100%;
+  vertical-align: middle;
+}
+.f_infolinks a {
+  text-decoration: none;
+}
+.f_infolinks a :hover {
+  text-decoration: underline;
 }
 
 a {
