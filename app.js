@@ -12,11 +12,11 @@ const port = 8000; // You can set this to any desired port
 
 
 const connection = mysql.createConnection({
-  host: "mysql-2e295e01-noob-8b4e.k.aivencloud.com",
-  user: "avnadmin",
-  database: "defaultdb",
-  password: "AVNS_a4Q4yFt1nVXs8YrHqVD",
-  port: 11699,
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
 });
 
 // Middleware setup
