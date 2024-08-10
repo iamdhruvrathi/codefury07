@@ -3,55 +3,81 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
+       
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
+            background: linear-gradient(135deg, #e09a9a 0%, #3a3a3a 100%);
+            color: #e0e0e0;
             display: flex;
             justify-content: center;
             
             height: 100vh;
             margin: 0;
+            overflow: hidden;
+        }
+
+        .marquee {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: red;
+            padding: 10px;
+            font-size: 1.5rem;
+            text-align: center;
+            z-index: 10;
         }
 
         .sos-alert {
             text-align: center;
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 20px;
+            background: linear-gradient(135deg, #da6161, #444);
+            border: 1px solid #555;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            padding: 30px;
             width: 90%;
-            max-width: 800px;
+            max-width: 700px;
+            position: relative;
+            z-index: 1;
         }
 
         h1 {
-            color: #d9534f;
-            margin-bottom: 15px;
+            color: #f56c6c;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 105, 97, 0.8);
         }
 
         p {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
         }
 
         #emergency-number {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin: 20px 0;
+            font-weight: bold;
+            color: red;
+            text-shadow: 0 0 5px rgba(225, 225, 225, 0.1);
         }
 
         #start-button {
-            padding: 12px 25px;
+            padding: 15px 30px;
             border: none;
-            border-radius: 5px;
-            background-color: #007bff;
-            color: white;
-            font-size: 1rem;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: #ffffff;
+            font-size: 1.1rem;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background 0.3s ease, transform 0.2s ease;
+            margin-top: 20px;
         }
 
         #start-button:hover {
-            background-color: #0056b3;
+            background: linear-gradient(135deg, #2980b9, #3498db);
+            transform: scale(1.05);
         }
 
         #video-container {
@@ -64,9 +90,9 @@
         video {
             width: 100%;
             max-width: 600px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 2px solid #444;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         #icon-container {
@@ -77,16 +103,18 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(43, 43, 43, 0.9);
             border-radius: 50%;
-            padding: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         .fa-user {
-            font-size: 50px;
-            color: #007bff;
+            font-size: 60px;
+            color: #3498db;
         }
+    
+
     </style>
 </head>
 

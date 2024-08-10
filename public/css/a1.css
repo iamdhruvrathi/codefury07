@@ -12,7 +12,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    ;
+     background: linear-gradient(135deg, #191645, #43c6ac);
+    
     
     
 }
@@ -30,7 +31,9 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     height: 5rem;
-    background-color: #201E43; /* Footer background color */
+    background:#191645;
+    
+    /* Footer background color */
     color: #EEEEEE; /* Footer text color */
     text-align: center;
 }
@@ -68,9 +71,14 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #134B70; /* Navbar background color */
+    background-color: white; /* Navbar background color */
     padding: 10px 20px;
     color: #EEEEEE; /* Navbar text color */
+    
+}
+
+.navbar-opacity-low {
+    opacity: 0.3 !important; /* Adjust the opacity value as needed */
 }
 
 .nav-container {
@@ -79,8 +87,14 @@ nav {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    
+    
 }
-
+.container-fluid{
+    background-color: white;
+    
+    
+}
 .nav-logo img {
     width: 100px;
 }
@@ -116,11 +130,14 @@ nav {
 }
 
 .hero {
-    background: #EEEEEE; /* Hero section background */
+    
+    background: #c6c7ef; /* Hero section background */
     text-align: center;
     padding: 50px 20px;
     position: relative; /* Positioning context for absolute children */
     overflow: hidden; /* Prevents overflow from absolute children */
+    border-radius: 10px;
+    margin-top: 10px !important;
 }
 
 .hero img {
