@@ -5,18 +5,18 @@ const methodOverride = require("method-override");
 const mysql = require("mysql2");
 const bcrypt = require("bcrypt");
 const ejsMate = require("ejs-mate");
-require("dotenv").config();
+
 
 const app = express();
 const port = 8000; // You can set this to any desired port
 
 
 const connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
+  host: "mysql-2e295e01-noob-8b4e.k.aivencloud.com",
+  user: "avnadmin",
+  database: "defaultdb",
+  password: "AVNS_a4Q4yFt1nVXs8YrHqVD",
+  port: 11699,
 });
 
 // Middleware setup
