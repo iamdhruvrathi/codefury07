@@ -5,7 +5,7 @@ const methodOverride = require("method-override");
 const mysql = require("mysql2");
 const bcrypt = require("bcrypt");
 const ejsMate = require("ejs-mate");
-
+require("dotenv").config();
 
 const app = express();
 const port = 8000; // You can set this to any desired port
