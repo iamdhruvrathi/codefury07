@@ -1,110 +1,135 @@
 <%layout("layouts/boilerplate")%>
+
 <body>
 
- 
+    <!--NAV-->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src=".assets/logo.png" alt="App Logo" width="100">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Disasters & Assistance</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">Community Forum</a></li>
+                <li><a href="#">Work With Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <!-- Hero Section -->
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="/assests/Wallpaper.jpg">
+        <h1>Be Prepared. Stay Safe. Respond Effectively.</h1>
+        <p>Empowering you with the tools and knowledge to navigate natural disasters.</p>
+        <div class="cta-buttons">
+            <a href="#" class="btn">Get Started</a>
+            <a href="#" class="btn">Sign Up for Alerts</a>
+        </div>
+        <div class="cta-container">
+            <button class="cta-sosbutton">SOS</button>
+        </div>
+    </section>
 
+    <!-- Key Features Section -->
+    <section class="features">
+        <div class="feature">
+            <i class="icon-bell"></i>
+            <h2>Real-Time Alerts</h2>
+            <p>Receive immediate alerts for natural disasters in your area. Stay informed and act fast.</p>
+        </div>
+        <div class="feature">
+            <i class="icon-book"></i>
+            <h2>Disaster Preparedness Guides</h2>
+            <p>Access step-by-step guides to prepare for hurricanes, earthquakes, floods, and more.</p>
+        </div>
+        <div class="feature">
+            <i class="icon-map"></i>
+            <h2>Emergency Resources</h2>
+            <p>Find local shelters, emergency services, and evacuation routes at your fingertips.</p>
+        </div>
+        <div class="feature">
+            <i class="icon-chat"></i>
+            <h2>Community Support</h2>
+            <p>Connect with others, share experiences, and get advice in our community forum.</p>
+        </div>
+    </section>
 
-  
-  <section class="hero">
-    <h1>Be Prepared. Stay Safe. Respond Effectively.</h1>
-    <p>Empowering you with the tools and knowledge to navigate natural disasters.</p>
-    <div class="cta-buttons">
-      <a href="#" class="btn">Get Started</a>
-      <a href="#" class="btn">Sign Up for Alerts</a>
-    </div>
-  </section>
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>What People Are Saying</h2>
+        <div class="testimonial">
+            <p>"This platform helped my family safely evacuate during last year’s wildfire. The real-time alerts were a lifesaver."</p>
+        </div>
+        <div class="testimonial">
+            <p>"The preparedness guides gave us the confidence to face the hurricane season without fear."</p>
+        </div>
+    </section>
 
-  <!-- Key Features Section -->
-  <section class="features">
-    <div class="feature">
-      <i class="icon-bell"></i>
-      <h2>Real-Time Alerts</h2>
-      <p>Receive immediate alerts for natural disasters in your area. Stay informed and act fast.</p>
-    </div>
-    <div class="feature">
-      <i class="icon-book"></i>
-      <h2>Disaster Preparedness Guides</h2>
-      <p>Access step-by-step guides to prepare for hurricanes, earthquakes, floods, and more.</p>
-    </div>
-    <div class="feature">
-      <i class="icon-map"></i>
-      <h2>Emergency Resources</h2>
-      <p>Find local shelters, emergency services, and evacuation routes at your fingertips.</p>
-    </div>
-    <div class="feature">
-      <i class="icon-chat"></i>
-      <h2>Community Support</h2>
-      <p>Connect with others, share experiences, and get advice in our community forum.</p>
-    </div>
-  </section>
+    <!-- Educational Resources Section -->
+    <section class="resources">
+        <h2>Learn How to Stay Safe</h2>
+        <a href="/test/disaster details/cyclone.html" class="resource-category">
+            <img src="image/hurricane.jpg" alt="Cyclone">
+            <h3>Cyclone</h3>
+        </a>
+        <a href="/test/disaster details/tsunami.html" class="resource-category">
+            <img src="image/tsunami.jpg" alt="Tsunami">
+            <h3>Tsunami</h3>
+        </a>
+        <a href="/test/disaster details/earthquake.html" class="resource-category">
+            <img src="image/earthquake.jpg" alt="Cyclone">
+            <h3>Earthquake</h3>
+        </a>
+        <a href="/test/disaster details/flood.html" class="resource-category">
+            <img src="image/flood.jpg" alt="Flood">
+            <h3>Flood</h3>
+        </a>
+        
+    </section>
+    
 
-  <!-- Testimonials Section -->
-  <section class="testimonials">
-    <h2>What People Are Saying</h2>
-    <div class="testimonial">
-      <p>"This platform helped my family safely evacuate during last year’s wildfire. The real-time alerts were a lifesaver."</p>
-    </div>
-    <div class="testimonial">
-      <p>"The preparedness guides gave us the confidence to face the hurricane season without fear."</p>
-    </div>
-  </section>
+    <!-- Newsletter Sign-Up -->
+    <section class="newsletter">
+        <h2>Stay Updated</h2>
+        <p>Sign up for our monthly newsletter to receive the latest tips, resources, and updates on disaster preparedness.</p>
+        <form>
+            <input type="email" placeholder="Enter your email">
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
 
-  <!-- Educational Resources Section -->
-  <section class="resources">
-    <h2>Learn How to Stay Safe</h2>
-    <div class="resource-category">
-      <img src="image/hurricane.jpg" alt="Hurricane">
-      <h3>Hurricanes</h3>
-    </div>
-    <div class="resource-category">
-      <img src="image/earthquake.jpg" alt="Earthquake">
-      <h3>Earthquakes</h3>
-    </div>
-    <div class="resource-category">
-      <img src="image/flood.jpg" alt="Flood">
-      <h3>Floods</h3>
-    </div>
-    <div class="resource-category">
-      <img src="image/wildfire.jpg" alt="Wildfire">
-      <h3>Wildfires</h3>
-    </div>
-  </section>
+    <!-- Footer -->
+    <footer>
+        <div class="quick-links">
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Resources</a>
+            <a href="#">Community Forum</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="social-media">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+        <div class="contact-info">
+            <p>Email: contact@disasterready.com</p>
+            <p>Phone: 123-456-7890</p>
+        </div>
+        <div class="legal">
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+    </footer>
 
-  <!-- Newsletter Sign-Up -->
-  <section class="newsletter">
-    <h2>Stay Updated</h2>
-    <p>Sign up for our monthly newsletter to receive the latest tips, resources, and updates on disaster preparedness.</p>
-    <form>
-      <input type="email" placeholder="Enter your email">
-      <button type="submit">Subscribe</button>
-    </form>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="quick-links">
-      <a href="#">Home</a>
-      <a href="#">About Us</a>
-      <a href="#">Resources</a>
-      <a href="#">Community Forum</a>
-      <a href="#">Contact Us</a>
-    </div>
-    <div class="social-media">
-      <a href="#">Facebook</a>
-      <a href="#">Twitter</a>
-      <a href="#">Instagram</a>
-    </div>
-    <div class="contact-info">
-      <p>Email: contact@disasterready.com</p>
-      <p>Phone: 123-456-7890</p>
-    </div>
-    <div class="legal">
-      <a href="#">Terms of Service</a>
-      <a href="#">Privacy Policy</a>
-    </div>
-  </footer>
-
+    
+<script>function dismissAlert(button) {
+    const alert = button.parentElement;
+    alert.style.display = 'none';
+}
+</script>
 </body>
 
