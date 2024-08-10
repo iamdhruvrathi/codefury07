@@ -193,3 +193,19 @@ nav {
 .cta-container a{
     text-decoration: none;
 }
+
+.cta-buttons .btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.cta-buttons .btn:hover {
+  background-color: darkred;
+}
