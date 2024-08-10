@@ -78,7 +78,7 @@
                     // Fetch emergency number based on state
                     let emergencyNumber = getEmergencyNumber(userState);
                     if (emergencyNumber !== "Emergency number not available") {
-                        // Initiate the call
+                        // Initiate the call directly
                         window.location.href = `tel:${emergencyNumber}`;
                     } else {
                         alert('Emergency number not available for your location.');
