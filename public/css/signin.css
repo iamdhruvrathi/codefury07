@@ -27,7 +27,11 @@ input {
   overflow: hidden;
 }
 
-
+footer {
+    
+    padding: 0rem !important;
+    
+}
 
 .form-wrapper {
   position: absolute;
