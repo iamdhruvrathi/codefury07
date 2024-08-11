@@ -34,6 +34,9 @@
             width: 90%;
             max-width: 600px;
             text-align: center;
+            background-color: rgba(255, 255, 255, 0.3); /* White background with opacity */
+            padding: 20px;
+            border-radius: 10px;
         }
 
         .alert {
@@ -41,6 +44,14 @@
             margin: 10px 0;
             background-color: #f8d7da;
             color: #721c24;
+            border-radius: 5px;
+        }
+
+        .no-alerts {
+            padding: 1px;
+            
+            background-color: #3fff63; /* Light green background */
+            color: black; /* Dark green text color */
             border-radius: 5px;
         }
     </style>
@@ -118,7 +129,11 @@
                         weatherInfoDiv.appendChild(alertDiv);
                     });
                 } else {
-                    weatherInfoDiv.innerHTML += `<p>No weather alerts at this time.</p>`;
+                    // Display the no alerts message
+                    const noAlertsDiv = document.createElement('div');
+                    noAlertsDiv.className = 'no-alerts';
+                    noAlertsDiv.innerHTML = `<p>No weather alerts at this time.</p>`;
+                    weatherInfoDiv.appendChild(noAlertsDiv);
                 }
             }
 
