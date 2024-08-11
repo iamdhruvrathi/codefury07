@@ -32,15 +32,13 @@ body {
     flex-wrap: wrap;
     height: 5rem;
     background:#191645;
-    
-    /* Footer background color */
-    color: #EEEEEE; /* Footer text color */
+    color: #EEEEEE; 
     text-align: center;
 }
 
 .f_infosocial {
     width: 100%;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     vertical-align: middle;
 }
 
