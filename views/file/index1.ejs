@@ -22,7 +22,7 @@
             margin: 20px 0;
         }
 
-        #map, #alerts-map {
+        #map {
             height: 400px;
             width: 90%;
             max-width: 600px;
@@ -34,7 +34,7 @@
             width: 90%;
             max-width: 600px;
             text-align: center;
-            background-color: rgba(255, 255, 255, 0.3); /* White background with opacity */
+            background-color: rgba(255, 255, 255, 0.3);
             padding: 20px;
             border-radius: 10px;
         }
@@ -48,20 +48,32 @@
         }
 
         .no-alerts {
-            padding: 1px;
-            
-            background-color: #3fff63; /* Light green background */
-            color: black; /* Dark green text color */
+            padding: 10px;
+            background-color: #3fff63;
+            color: black;
             border-radius: 5px;
+        }
+
+        .name {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            padding: 3px;
+        }
+
+        .weatheralwer1 {
+            background-color: rgba(255, 0, 0, 0.4);
+            color: white;
+            border-radius: 5px;
+            padding: 3px;
         }
     </style>
 </head>
 <body>
 
-    <h1>Weather Alerts</h1>
+    <h1 class="weatheralwer1">Weather Alerts</h1>
+    <h2 class="name">YOUR ALERT</h2>
     <div id="map"></div>
     <div id="weather-info"></div>
-    <div id="alerts-map"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <script>
@@ -75,7 +87,7 @@
             function success(position) {
                 const latitude = position.coords.latitude;
                 const longitude = position.coords.longitude;
-                displayMap(latitude, longitude, 'map');
+                displayMap(latitude, longitude);
                 fetchWeatherData(latitude, longitude);
             }
 
@@ -83,16 +95,14 @@
                 alert('Unable to retrieve your location.');
             }
 
-            function displayMap(lat, lon, elementId) {
-                const map = L.map(elementId).setView([lat, lon], 5);
+            function displayMap(lat, lon) {
+                const map = L.map('map').setView([lat, lon], 5);
 
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; OpenStreetMap contributors'
                 }).addTo(map);
 
-                if (elementId === 'map') {
-                    L.marker([lat, lon]).addTo(map).bindPopup('Your Location').openPopup();
-                }
+                L.marker([lat, lon]).addTo(map).bindPopup('Your Location').openPopup();
             }
 
             function fetchWeatherData(lat, lon) {
@@ -103,7 +113,6 @@
                     .then(response => response.json())
                     .then(data => {
                         displayWeatherData(data);
-                        fetchAlertLocations(data.alerts.alert);
                     })
                     .catch(error => console.error('Error fetching weather data:', error));
             }
@@ -129,38 +138,12 @@
                         weatherInfoDiv.appendChild(alertDiv);
                     });
                 } else {
-                    // Display the no alerts message
                     const noAlertsDiv = document.createElement('div');
                     noAlertsDiv.className = 'no-alerts';
                     noAlertsDiv.innerHTML = `<p>No weather alerts at this time.</p>`;
                     weatherInfoDiv.appendChild(noAlertsDiv);
                 }
             }
-
-            function fetchAlertLocations(alerts) {
-                if (alerts && alerts.length > 0) {
-                    const map = L.map('alerts-map').setView([20.5937, 78.9629], 5);
-
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        attribution: '&copy; OpenStreetMap contributors'
-                    }).addTo(map);
-
-                    alerts.forEach(alert => {
-                        const lat = parseFloat(alert.lat);
-                        const lon = parseFloat(alert.lon);
-
-                        if (!isNaN(lat) && !isNaN(lon)) {
-                            L.marker([lat, lon]).addTo(map)
-                                .bindPopup(`<strong>Alert:</strong> ${alert.headline}<br><strong>Description:</strong> ${alert.desc}`)
-                                .openPopup();
-                        }
-                    });
-                } else {
-                    alert('No alerts to display on the map.');
-                }
-            }
-
-            displayMap(20.5937, 78.9629, 'alerts-map');
         });
     </script>
 </body>
