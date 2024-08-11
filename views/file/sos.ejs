@@ -8,7 +8,6 @@
             background-color: #f8f9fa;
             color: #333;
             display: flex;
-            
             height: 100vh;
             margin: 0;
         }
@@ -109,6 +108,78 @@
             flex-direction: column;
             width: 100%;
         }
+
+        @media (max-width: 576px) {
+            .sos-alert {
+                padding: 15px;
+                width: 95%;
+            }
+
+            .marquee {
+                font-size: 1.2rem;
+            }
+
+            #start-button {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+
+            video {
+                max-width: 100%;
+            }
+
+            .fa-user {
+                font-size: 40px;
+            }
+        }
+
+        @media (min-width: 577px) and (max-width: 768px) {
+            .sos-alert {
+                padding: 18px;
+                width: 90%;
+            }
+
+            .marquee {
+                font-size: 1.3rem;
+            }
+
+            #start-button {
+                font-size: 1rem;
+                padding: 12px 25px;
+            }
+
+            video {
+                max-width: 80%;
+            }
+
+            .fa-user {
+                font-size: 45px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 992px) {
+            .sos-alert {
+                padding: 20px;
+                width: 85%;
+            }
+
+            .marquee {
+                font-size: 1.4rem;
+            }
+
+            #start-button {
+                font-size: 1rem;
+                padding: 12px 25px;
+            }
+
+            video {
+                max-width: 70%;
+            }
+
+            .fa-user {
+                font-size: 48px;
+            }
+        }
     </style>
 </head>
 
@@ -139,25 +210,19 @@
         </section>
     </div>
 
-    <script src="public/js/callcenter.js"></script> <!-- Make sure to include your call center JS file -->
-
     <script>
-        // Fetch and display the emergency number as soon as the page loads
         window.onload = async function() {
-            const userState = await getUserState(); // Get the user's state
+            const userState = await getUserState();
             const userEmergencyNumber = getEmergencyNumber(userState);
-            document.getElementById("number").innerText = userEmergencyNumber; // Display the number
+            document.getElementById("number").innerText = userEmergencyNumber;
         };
 
         async function startVideo() {
             const localVideo = document.getElementById('localVideo');
 
             try {
-                // Access the user's camera
                 const stream = await navigator.mediaDevices.getUserMedia({ video: true });
                 localVideo.srcObject = stream;
-
-                // Hide the user icon once video is active
                 document.getElementById("icon-container").style.display = 'none';
             } catch (error) {
                 console.error('Error accessing media devices.', error);
@@ -166,11 +231,7 @@
         }
 
         async function getUserState() {
-            // This function should determine the user's state based on their location.
-            // For demo purposes, we will return a hardcoded state.
-
-            // In a real implementation, you would use geolocation to determine the user's state.
-            return "Karnataka"; // Replace this with actual logic to determine the user's state
+            return "Karnataka";
         }
 
         function getEmergencyNumber(state) {
@@ -178,7 +239,6 @@
                 Karnataka: "080-22340676",
                 Maharashtra: "022-27601150",
                 Delhi: "011-100",
-                // Add numbers for other states here
             };
 
             return emergencyNumbers[state] || "Emergency number not available";
