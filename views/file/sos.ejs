@@ -8,17 +8,15 @@
             background-color: #f8f9fa;
             color: #333;
             display: flex;
-            justify-content: center;
             
             height: 100vh;
             margin: 0;
         }
 
         .sos-alert {
-            margin-top:12%;
+            margin-top: 12%;
             text-align: center;
             background: linear-gradient(135deg, #36BA98, #E76F51);
-
             border: 1px solid #ddd;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -26,10 +24,11 @@
             width: 90%;
             max-width: 800px;
         }
-           .marquee {
+
+        .marquee {
             position: absolute;
             top: 0;
-            width: 65%;
+            width: 100%;
             overflow: hidden;
             background-color: rgba(0, 0, 0, 0.7);
             color: red;
@@ -37,9 +36,8 @@
             font-size: 1.5rem;
             text-align: center;
             z-index: 10;
-            margin-top: 8%;
+            margin-top: 5%;
         }
-
 
         h1 {
             color: #d9534f;
@@ -103,36 +101,54 @@
             font-size: 50px;
             color: #007bff;
         }
+
+        .b1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+        }
     </style>
 </head>
 
 <body>
-    <div class="marquee">
-        <marquee behavior="scroll" direction="left">⚠ Emergency Alert: Please stay calm and follow the instructions! ⚠</marquee>
-    </div>
-
-    <section class="sos-alert">
-        <h1><b>Emergency SOS Activated!</b></h1>
-        <h5><p>Your location has been shared with the emergency services.</p>
-        <p>If you need immediate assistance, please call the emergency number below:</p>
-</h5>
-        <div id="emergency-number">
-            <strong>Emergency Number: <span id="number">Fetching...</span></strong>
+    <div class="b1">
+        <div class="marquee">
+            <marquee behavior="scroll" direction="left">⚠ Emergency Alert: Please stay calm and follow the instructions! ⚠</marquee>
         </div>
 
-        <button id="start-button" onclick="startVideo()">Connect Video</button>
-
-        <div id="video-container">
-            <video id="localVideo" autoplay muted></video>
-            <div id="icon-container">
-                <i class="fa-solid fa-user"></i>
+        <section class="sos-alert">
+            <h1><b>Emergency SOS Activated!</b></h1>
+            <h5>
+                <p>Your location has been shared with the emergency services.</p>
+                <p>If you need immediate assistance, please call the emergency number below:</p>
+            </h5>
+            <div id="emergency-number">
+                <strong>Emergency Number: <span id="number">Fetching...</span></strong>
             </div>
-        </div>
-    </section>
+
+            <button id="start-button" onclick="startVideo()">Connect Video</button>
+
+            <div id="video-container">
+                <video id="localVideo" autoplay muted></video>
+                <div id="icon-container">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <script src="public/js/callcenter.js"></script> <!-- Make sure to include your call center JS file -->
 
     <script>
+        // Fetch and display the emergency number as soon as the page loads
+        window.onload = async function() {
+            const userState = await getUserState(); // Get the user's state
+            const userEmergencyNumber = getEmergencyNumber(userState);
+            document.getElementById("number").innerText = userEmergencyNumber; // Display the number
+        };
+
         async function startVideo() {
             const localVideo = document.getElementById('localVideo');
 
@@ -140,11 +156,6 @@
                 // Access the user's camera
                 const stream = await navigator.mediaDevices.getUserMedia({ video: true });
                 localVideo.srcObject = stream;
-
-                // Fetch and display the emergency number based on the user's state
-                const userState = await getUserState(); // Function to get the user's state
-                const userEmergencyNumber = getEmergencyNumber(userState);
-                document.getElementById("number").innerText = userEmergencyNumber; // Display the number
 
                 // Hide the user icon once video is active
                 document.getElementById("icon-container").style.display = 'none';
