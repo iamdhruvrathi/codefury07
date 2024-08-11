@@ -105,7 +105,7 @@ app.post("/register", async (req, res) => {
         return res.status(500).send("Error registering user");
       }
       console.log("User registered successfully");
-      res.redirect("/login"); // Change this to the correct path
+      res.redirect("/login"); 
     });
   });
 });

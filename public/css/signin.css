@@ -11,13 +11,6 @@ input {
   font-family: "Poppins", sans-serif;
 }
 
-.form-container {
-  position: relative;
-  width: 100%;
-  background-color: #FFF5E1;
-  min-height: 100vh;
-  overflow: hidden;
-}
 
 .forms-wrapper {
   position: absolute;
@@ -25,6 +18,13 @@ input {
   height: 100%;
   top: 0;
   left: 0;
+}
+.form-container {
+  position: relative;
+  width: 100%;
+  background-color: #FFF5E1;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 
