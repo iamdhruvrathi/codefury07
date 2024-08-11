@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Alerts</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #36BA98, #E76F51);
+            color: #20262C;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #map, #alerts-map {
+            height: 400px;
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        #weather-info {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .alert {
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #f8d7da;
+            color: #721c24;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Weather Alerts</h1>
+    <div id="map"></div>
+    <div id="weather-info"></div>
+    <div id="alerts-map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(success, error);
+            } else {
+                alert('Geolocation is not supported by your browser.');
+            }
+
+            function success(position) {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                displayMap(latitude, longitude, 'map');
+                fetchWeatherData(latitude, longitude);
+            }
+
+            function error() {
+                alert('Unable to retrieve your location.');
+            }
+
+            function displayMap(lat, lon, elementId) {
+                const map = L.map(elementId).setView([lat, lon], 5);
+
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; OpenStreetMap contributors'
+                }).addTo(map);
+
+                if (elementId === 'map') {
+                    L.marker([lat, lon]).addTo(map).bindPopup('Your Location').openPopup();
+                }
+            }
+
+            function fetchWeatherData(lat, lon) {
+                const apiKey = '69f96ff2ab7945259dc10131241108';
+                const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${lat},${lon}&alerts=yes`;
+
+                fetch(apiUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        displayWeatherData(data);
+                        fetchAlertLocations(data.alerts.alert);
+                    })
+                    .catch(error => console.error('Error fetching weather data:', error));
+            }
+
+            function displayWeatherData(data) {
+                const weatherInfoDiv = document.getElementById('weather-info');
+                weatherInfoDiv.innerHTML = `
+                    <h2>Current Weather</h2>
+                    <p><strong>Location:</strong> ${data.location.name}, ${data.location.region}, ${data.location.country}</p>
+                    <p><strong>Temperature:</strong> ${data.current.temp_c} °C</p>
+                    <p><strong>Condition:</strong> ${data.current.condition.text}</p>
+                `;
+
+                if (data.alerts && data.alerts.alert.length > 0) {
+                    data.alerts.alert.forEach(alert => {
+                        const alertDiv = document.createElement('div');
+                        alertDiv.className = 'alert';
+                        alertDiv.innerHTML = `
+                            <strong>Alert:</strong> ${alert.headline}<br>
+                            <strong>Description:</strong> ${alert.desc}<br>
+                            <strong>Instruction:</strong> ${alert.instruction}
+                        `;
+                        weatherInfoDiv.appendChild(alertDiv);
+                    });
+                } else {
+                    weatherInfoDiv.innerHTML += `<p>No weather alerts at this time.</p>`;
+                }
+            }
+
+            function fetchAlertLocations(alerts) {
+                if (alerts && alerts.length > 0) {
+                    const map = L.map('alerts-map').setView([20.5937, 78.9629], 5);
+
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; OpenStreetMap contributors'
+                    }).addTo(map);
+
+                    alerts.forEach(alert => {
+                        const lat = parseFloat(alert.lat);
+                        const lon = parseFloat(alert.lon);
+
+                        if (!isNaN(lat) && !isNaN(lon)) {
+                            L.marker([lat, lon]).addTo(map)
+                                .bindPopup(`<strong>Alert:</strong> ${alert.headline}<br><strong>Description:</strong> ${alert.desc}`)
+                                .openPopup();
+                        }
+                    });
+                } else {
+                    alert('No alerts to display on the map.');
+                }
+            }
+
+            displayMap(20.5937, 78.9629, 'alerts-map');
+        });
+    </script>
+</body>
+</html>
