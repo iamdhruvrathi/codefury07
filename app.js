@@ -123,3 +123,6 @@ app.get("/weather", (req, res) => {
 app.get("/test", (req, res) => {
   res.render("./file/index1"); 
 });
+app.get("/donation", (req, res) => {
+  res.render("./file/donation"); 
+});

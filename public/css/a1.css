@@ -232,3 +232,123 @@ nav {
 .cta-buttons .btn:hover {
   background-color: darkred;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#scholarsync {
+    height: 50px;
+    width: 150px;
+    border-radius: 15px;
+    margin-top: 30px;
+    margin-left: 345px;
+}
+
+#main {
+    background-color: #517FD8;
+    height: 100px;
+}
+
+#list {
+    color: white;
+    position: absolute;
+    left: 700px;
+    font-family: 'Cormorant Upright', serif;
+    top: 60px;
+    z-index: 3;
+    display: inline-block;
+    font-size: 15px;
+}
+
+a {
+    padding-right: 25px;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.donation-card {
+    width: 300px;
+    height: 380px;
+    border: 5px solid #4979D6;
+    border-radius: 25px;
+    padding: 15px;
+    margin: 20px;
+    background-color: rgba(225, 225, 225, 0.8);
+    font-size: 14px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+.donation-card:hover {
+    transform: scale(1.05);
+}
+
+.donation-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.donation-card h3 {
+    color: #d56f3e;
+}
+
+.donation-card p {
+    color: black;
+}
+
+.donation-button {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 40px;
+    width: 140px;
+    background-color: #E6DF31;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+.donation-button:hover {
+    background-color: #d6c531;
+}
+
+.donation-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
