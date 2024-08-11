@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donations</title>
+    <style>
+        #scholarsync {
+            height: 50px;
+            width: 150px;
+            border-radius: 15px;
+            margin-top: 30px;
+            margin-left: 345px;
+        }
+
+        #main {
+            background-color: #517FD8;
+            height: 100px;
+        }
+
+        #list {
+            color: white;
+            position: absolute;
+            left: 700px;
+            font-family: Cormorant Upright;
+            top: 60px;
+            z-index: 3;
+            display: inline-block;
+            font-size: 15px;
+        }
+
+        a {
+            padding-right: 25px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            width: 240px;
+            height: 310px;
+            border: 5px solid #4979D6;
+            border-radius: 25px;
+            padding: 10px;
+            margin: 18px;
+            background-color: rgba(225, 225, 225, 0.8);
+            text-decoration-color: white;
+            font-size: 12px;
+            position: relative;
+        }
+
+        img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover; /* Maintains aspect ratio and crops if necessary */
+            border-radius: 25px;
+        }
+
+        h2 {
+            color: #d56f3e;
+        }
+
+        span {
+            color: #9d6f24;
+        }
+
+        h4 {
+            text-align: right;
+            color: #3c787e;
+        }
+
+        #viewbutton {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 40px;
+            width: 120px;
+            background-color: #E6DF31;
+            border-color: rgba(225, 225, 225, 0.9);
+            text-align: center;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: repeat(3, 2fr);
+            position: absolute;
+            left: 22%;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <!-- <section class="header">
+        <div id="main">
+           <img src="logo.jpg" id="scholarsync">
+           <div id="list">
+               
+            <a href="scholarship.html">SCHOLARSHIPS</a>
+            <a><u>NEWSLETTER</u></a>
+            <a href="events.html">EVENTS</a>
+            <a href="myprofile.html">YOUR PROFILE</a>
+            <a href="aboutus.html">ABOUT US</a>
+            </div>
+        </div>
+    </section> -->
+    </nav>
+
+    <section class="main-content">
+        <div class="card">
+            <img src="https://pmnrf.gov.in/assets/uploads/home_banners/pmnrf_en_header2_20190416094006.jpg" alt="PMNRF">
+            <h3>PMNRF</h3>
+            <p>
+                Prime Minister's National Relief Fund, (PMNRF accepts voluntary contributions from individuals,
+                organizations, companies, and institutions etc.)
+            </p>
+            <a href="https://pmnrf.gov.in/en/online-donation"><button id="viewbutton">Donate Now</button></a>
+        </div>
+
+        <div class="card">
+            <img src="https://www.redcross.org/content/dam/redcross/imported-images/redcross-logo.png.img.png" alt="American Red Cross">
+            <h3>American Red Cross</h3>
+            <p>
+                You Can Make a Difference
+                Your support of our mission brings help and hope to families in need.
+            </p>
+            <a href="https://www.redcross.org/donate/donation.html/"><button id="viewbutton">Donate Now</button></a>
+        </div>
+
+        <div class="card">
+            <img src="https://www.unicef.org/india/sites/unicef.org.india/files/styles/standard_banner/public/UNI609026.webp?itok=Mosf4q8a" alt="UNICEF India">
+            <h3>UNICEF India</h3>
+            <p>For Every Child</p>
+            <a href="https://www.unicef.org/india/?campaignID=7011i000000kqRfAAI"><button id="viewbutton">Donate Now</button></a>
+        </div>
+
+        <div class="card">
+            <img src="https://www.lcifindia.org/assets/images/section50//lions-4.2-disaster-thailand-aftermath-boy.jpg" alt="LCIF INDIA">
+            <h3>LCIF INDIA</h3>
+            <p>
+                When disaster strikes in India, Lions are often among the first to offer aid. And LCIF India is right
+                there with them.
+            </p>
+            <a href="https://www.lcifindia.org/disaster-relief.php"><button id="viewbutton">Donate Now</button></a>
+        </div>
+
+        <div class="card">
+            <img src="https://www.compassion.com/Images/disaster-relief-hero-04-2023--l_162247_728x232.jpg" alt="Compassion">
+            <h3>Compassion</h3>
+            <p>
+                Your gift will meet the urgent needs of thousands of Compassion children who are impacted by natural and
+                man-made disasters.
+            </p>
+            <a href="https://www.compassion.com/disaster-relief.htm"><button id="viewbutton">Donate Now</button></a>
+        </div>
+
+        <div class="card">
+            <img src="https://www.habitat.org/sites/default/files/styles/2_1_large/public/2016-10/disaster-response-van-oklahoma_0.jpg?itok=ejSo7KDV" alt="Habitat">
+            <h3>Habitat</h3>
+            <p>
+                Through Habitat’s Disaster Risk Reduction, with the help of volunteers and donors like you, we are able
+                to provide shelter assistance, education, training and partnerships.
+            </p>
+            <a href="https://www.habitat.org/our-work/disaster-response"><button id="viewbutton">Donate Now</button></a>
+        </div>
+
+        <div class="card">
+            <img src="https://global.rakuten.com/corp/donation/disaster_en/images/disaster_en.jpeg" alt="Rakuten">
+            <h3>Rakuten</h3>
+            <p>
+                Rakuten Clutch Special Charity Fund
+
+                Disaster preparedness fund
+            </p>
+            <a href="https://global.rakuten.com/corp/donation/disaster_en/disaster_en.html"><button id="viewbutton">Donate Now</button></a>
+        </div>
+    </section>
+
+    <br /><br />
+</body>
+
+<footer>
+    <!-- &copy; 2024 ScholarSync. All rights reserved. -->
+</footer>
+
+</html>
