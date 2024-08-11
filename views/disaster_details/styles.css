@@ -91,7 +91,7 @@ ul {
 footer {
     background: linear-gradient(to right, #004d40, #00796b);
     color: #fff;
-    
+    padding: 0rem !important;
     text-align: center;
 }
 
